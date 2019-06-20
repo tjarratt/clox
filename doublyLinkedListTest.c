@@ -42,11 +42,22 @@ void list_insert_node_end_appends_node_at_the_end() {
 }
 
 void list_find__returns_null_when_string_doesnt_appear_in_any_node() {
-  assert(false);
+  DoublyLinkedNode *appetizer = make_node("Spam");
+
+  DoublyLinkedList *list = make_list(appetizer);
+  assert( NULL == list_find(list, "nimporte-quoi") );
 }
 
 void list_find__returns_the_first_node_containing_the_string() {
-  assert(false);
+  DoublyLinkedNode *appetizer = make_node("Eggs");
+  DoublyLinkedNode *entree = make_node("Spam");
+  DoublyLinkedNode *dessert = make_node("Spam");
+
+  DoublyLinkedList *list = make_list(appetizer);
+  list_insert_node_end(list, entree);
+  list_insert_node_end(list, dessert);
+
+  assert( list_find(list, "Spam") == entree );
 }
 
 void delete_node_does_the_right_thing() {

@@ -1,5 +1,6 @@
 #import "doublyLinkedList.h"
 #import <stdlib.h>
+#import <strings.h>
 
 DoublyLinkedNode *make_node(char *data) {
   DoublyLinkedNode *node;
@@ -38,6 +39,19 @@ void list_insert_node_end(DoublyLinkedList *list, DoublyLinkedNode *node) {
 }
 
 DoublyLinkedNode * list_find(DoublyLinkedList *list, char *data) {
+  DoublyLinkedNode *node = list->first;
+  if (0 == strcmp(data, node->data)) {
+    return node;
+  }
+
+  do {
+    node = node->next;
+    if (0 == strcmp(data, node->data)) {
+      return node;
+    }
+  }
+  while ( node != list->first );
+
   return NULL;
 }
 

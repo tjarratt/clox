@@ -12,6 +12,7 @@ typedef struct DoublyLinkedList {
 DoublyLinkedNode * make_node(char *data);
 DoublyLinkedList * make_list(DoublyLinkedNode *node);
 void list_insert_end(DoublyLinkedList *list, DoublyLinkedNode *node);
+void list_insert_after(DoublyLinkedList *list, DoublyLinkedNode *node, DoublyLinkedNode *newNode);
 DoublyLinkedNode * list_find(DoublyLinkedList *list, char *data);
 void list_delete(DoublyLinkedList *list, DoublyLinkedNode *node);
 

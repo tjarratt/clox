@@ -38,6 +38,17 @@ void list_insert_end(DoublyLinkedList *list, DoublyLinkedNode *node) {
   list->last = node;
 }
 
+
+void list_insert_after(DoublyLinkedList *list, DoublyLinkedNode *node, DoublyLinkedNode *newNode) {
+  DoublyLinkedNode *next = node->next;
+  node->next = newNode;
+  next->prev = newNode;
+  newNode->prev = node;
+  newNode->next = next;
+
+  if (node == list->last) list->last = newNode;
+}
+
 DoublyLinkedNode * list_find(DoublyLinkedList *list, char *data) {
   DoublyLinkedNode *node = list->first;
   if (0 == strcmp(data, node->data)) {
@@ -70,3 +81,4 @@ void list_delete(DoublyLinkedList *list, DoublyLinkedNode *node) {
 
   free(deleteMe);
 }
+

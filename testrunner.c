@@ -6,6 +6,8 @@ void print_results();
 int main(int argc, char **argv) {
   make_node__returns_struct_with_data();
   list_insert_node_end_appends_node_at_the_end();
+  list_insert_after__puts_it_in_the_right_place();
+  list_insert_after__at_the_end_updates_last_pointer();
   list_find__returns_null_when_string_doesnt_appear_in_any_node();
   list_find__returns_the_first_node_containing_the_string();
   list_delete__removes_it_and_fixes_references();

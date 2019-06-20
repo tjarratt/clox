@@ -5,4 +5,6 @@ void list_find__returns_the_first_node_containing_the_string();
 void list_delete__removes_it_and_fixes_references();
 void list_delete__updates_first_pointer();
 void list_delete__updates_last_pointer();
+void list_insert_after__puts_it_in_the_right_place();
+void list_insert_after__at_the_end_updates_last_pointer();
 

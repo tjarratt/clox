@@ -41,6 +41,35 @@ void list_insert_node_end_appends_node_at_the_end() {
   assert( 0 == strcmp("Spam & eggs", list->last->prev->data) );
 }
 
+void list_insert_after__puts_it_in_the_right_place() {
+  DoublyLinkedNode *appetizer = make_node("Spam");
+  DoublyLinkedNode *entree = make_node("Spam & eggs");
+  DoublyLinkedNode *dessert = make_node("Spam, Spam, Spam");
+
+  DoublyLinkedList *list = make_list(appetizer);
+  list_insert_end(list, dessert);
+
+  list_insert_after(list, appetizer, entree);
+
+  assert( list->first->next == entree );
+  assert( list->last->prev == entree );
+  assert( entree->prev == appetizer );
+  assert( entree->next == dessert );
+}
+
+void list_insert_after__at_the_end_updates_last_pointer() {
+   DoublyLinkedNode *appetizer = make_node("Spam");
+  DoublyLinkedNode *entree = make_node("Spam & eggs");
+  DoublyLinkedNode *dessert = make_node("Spam, Spam, Spam");
+
+  DoublyLinkedList *list = make_list(appetizer);
+  list_insert_end(list, entree);
+
+  list_insert_after(list, entree, dessert);
+
+  assert( list->last == dessert );
+}
+
 void list_find__returns_null_when_string_doesnt_appear_in_any_node() {
   DoublyLinkedNode *appetizer = make_node("Spam");
 

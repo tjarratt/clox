@@ -5,6 +5,7 @@ void print_results();
 
 int main(int argc, char **argv) {
   make_node_returns_struct_with_data();
+  insert_node_at_end_effectively_appends();
 
   print_results();
   return 0;

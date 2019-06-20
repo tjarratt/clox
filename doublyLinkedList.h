@@ -1,6 +1,6 @@
 typedef struct DoublyLinkedNode {
-  void *next;
-  void *prev;
+  struct DoublyLinkedNode *next;
+  struct DoublyLinkedNode *prev;
   char *data;
 } DoublyLinkedNode;
 

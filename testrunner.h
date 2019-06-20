@@ -2,4 +2,7 @@ void make_node__returns_struct_with_data();
 void list_insert_node_end_appends_node_at_the_end();
 void list_find__returns_null_when_string_doesnt_appear_in_any_node();
 void list_find__returns_the_first_node_containing_the_string();
+void list_delete__removes_it_and_fixes_references();
+void list_delete__updates_first_pointer();
+void list_delete__updates_last_pointer();
 

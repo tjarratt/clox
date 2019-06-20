@@ -25,7 +25,7 @@ DoublyLinkedList *make_list(DoublyLinkedNode *node) {
   return list;
 }
 
-void list_insert_node_end(DoublyLinkedList *list, DoublyLinkedNode *node) {
+void list_insert_end(DoublyLinkedList *list, DoublyLinkedNode *node) {
   DoublyLinkedNode *first_node = list->first;
   DoublyLinkedNode *last_node = list->last;
 
@@ -55,3 +55,18 @@ DoublyLinkedNode * list_find(DoublyLinkedList *list, char *data) {
   return NULL;
 }
 
+void list_delete(DoublyLinkedList *list, DoublyLinkedNode *node) {
+  DoublyLinkedNode *deleteMe = list_find(list, node->data);
+  if ( NULL == deleteMe ) return;
+
+  DoublyLinkedNode *prev = deleteMe->prev;
+  DoublyLinkedNode *next = deleteMe->next;
+
+  prev->next = next;
+  next->prev = prev;
+
+  if (deleteMe == list->first) { list->first = next; }
+  if (deleteMe == list->last) { list->last = prev; }
+
+  free(deleteMe);
+}

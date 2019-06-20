@@ -8,6 +8,9 @@ int main(int argc, char **argv) {
   list_insert_node_end_appends_node_at_the_end();
   list_find__returns_null_when_string_doesnt_appear_in_any_node();
   list_find__returns_the_first_node_containing_the_string();
+  list_delete__removes_it_and_fixes_references();
+  list_delete__updates_first_pointer();
+  list_delete__updates_last_pointer();
 
   print_results();
   return 0;

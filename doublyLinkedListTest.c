@@ -23,8 +23,8 @@ void list_insert_node_end_appends_node_at_the_end() {
   assert(appetizer == appetizer->prev);
   assert(appetizer == appetizer->next);
 
-  list_insert_node_end(list, entree);
-  list_insert_node_end(list, dessert);
+  list_insert_end(list, entree);
+  list_insert_end(list, dessert);
 
   assert(list->first == appetizer);
   assert(list->last == dessert);
@@ -54,12 +54,52 @@ void list_find__returns_the_first_node_containing_the_string() {
   DoublyLinkedNode *dessert = make_node("Spam");
 
   DoublyLinkedList *list = make_list(appetizer);
-  list_insert_node_end(list, entree);
-  list_insert_node_end(list, dessert);
+  list_insert_end(list, entree);
+  list_insert_end(list, dessert);
 
   assert( list_find(list, "Spam") == entree );
 }
 
-void delete_node_does_the_right_thing() {
-  assert(false);
+void list_delete__removes_it_and_fixes_references() {
+  DoublyLinkedNode *appetizer = make_node("Spam");
+  DoublyLinkedNode *entree = make_node("Spam & eggs");
+  DoublyLinkedNode *dessert = make_node("Lobster Thermidor aux crevettes");
+
+  DoublyLinkedList *list = make_list(appetizer);
+  list_insert_end(list, entree);
+  list_insert_end(list, dessert);
+
+  list_delete(list, entree);
+
+  assert( list->first == list->last->prev );
+  assert( list->last == list->first->next );
 }
+
+void list_delete__updates_first_pointer() {
+  DoublyLinkedNode *appetizer = make_node("Spam");
+  DoublyLinkedNode *entree = make_node("Spam & eggs");
+  DoublyLinkedNode *dessert = make_node("Lobster Thermidor aux crevettes");
+
+  DoublyLinkedList *list = make_list(appetizer);
+  list_insert_end(list, entree);
+  list_insert_end(list, dessert);
+
+  list_delete(list, appetizer);
+
+  assert( list->first == entree );
+}
+
+void list_delete__updates_last_pointer() {
+  DoublyLinkedNode *appetizer = make_node("Spam");
+  DoublyLinkedNode *entree = make_node("Spam & eggs");
+  DoublyLinkedNode *dessert = make_node("Lobster Thermidor aux crevettes");
+
+  DoublyLinkedList *list = make_list(appetizer);
+  list_insert_end(list, entree);
+  list_insert_end(list, dessert);
+
+  list_delete(list, dessert);
+
+  assert( list->last == entree );
+}
+

@@ -1,2 +1,5 @@
-void make_node_returns_struct_with_data();
-void insert_node_at_end_effectively_appends();
+void make_node__returns_struct_with_data();
+void list_insert_node_end_appends_node_at_the_end();
+void list_find__returns_null_when_string_doesnt_appear_in_any_node();
+void list_find__returns_the_first_node_containing_the_string();
+

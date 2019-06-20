@@ -3,7 +3,8 @@
 #import <string.h>
 #import "doublyLinkedList.h"
 
-void make_node_returns_struct_with_data() {
+
+void make_node__returns_struct_with_data() {
   char *entree = "Spam & eggs";
   char *dessert = "Spam, Spam, Spam";
   DoublyLinkedNode *first = make_node(entree);
@@ -13,7 +14,7 @@ void make_node_returns_struct_with_data() {
   assert(0 == strcmp(second->data, "Spam, Spam, Spam"));
 }
 
-void insert_node_at_end_effectively_appends() {
+void list_insert_node_end_appends_node_at_the_end() {
   DoublyLinkedNode *appetizer = make_node("Spam");
   DoublyLinkedNode *entree = make_node("Spam and Eggs");
   DoublyLinkedNode *dessert = make_node("Spam, Spam, Spam");
@@ -32,11 +33,11 @@ void insert_node_at_end_effectively_appends() {
   assert(0 == strcmp("Spam", list->last->next->data));
 }
 
-void insert_node_end_handles_empty_list() {
+void list_find__returns_null_when_string_doesnt_appear_in_any_node() {
   assert(false);
 }
 
-void find_node_does_the_right_thing() {
+void list_find__returns_the_first_node_containing_the_string() {
   assert(false);
 }
 

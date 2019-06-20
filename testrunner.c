@@ -4,8 +4,10 @@
 void print_results();
 
 int main(int argc, char **argv) {
-  make_node_returns_struct_with_data();
-  insert_node_at_end_effectively_appends();
+  make_node__returns_struct_with_data();
+  list_insert_node_end_appends_node_at_the_end();
+  // list_find__returns_null_when_string_doesnt_appear_in_any_node();
+  // list_find__returns_the_first_node_containing_the_string();
 
   print_results();
   return 0;

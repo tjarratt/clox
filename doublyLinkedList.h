@@ -12,7 +12,7 @@ typedef struct DoublyLinkedList {
 DoublyLinkedNode * make_node(char *data);
 DoublyLinkedList * make_list(DoublyLinkedNode *node);
 void list_insert_node_end(DoublyLinkedList *list, DoublyLinkedNode *node);
-DoublyLinkedNode * list_find_node(DoublyLinkedList *list, char *data);
+DoublyLinkedNode * list_find(DoublyLinkedList *list, char *data);
 
 // TODO: 
 // insert

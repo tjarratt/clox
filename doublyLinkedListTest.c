@@ -16,7 +16,7 @@ void make_node__returns_struct_with_data() {
 
 void list_insert_node_end_appends_node_at_the_end() {
   DoublyLinkedNode *appetizer = make_node("Spam");
-  DoublyLinkedNode *entree = make_node("Spam and Eggs");
+  DoublyLinkedNode *entree = make_node("Spam & eggs");
   DoublyLinkedNode *dessert = make_node("Spam, Spam, Spam");
 
   DoublyLinkedList *list = make_list(appetizer);
@@ -24,13 +24,21 @@ void list_insert_node_end_appends_node_at_the_end() {
   assert(appetizer == appetizer->next);
 
   list_insert_node_end(list, entree);
-  list_insert_node_end(list, entree);
+  list_insert_node_end(list, dessert);
 
   assert(list->first == appetizer);
-  assert(list->last == entree);
-  assert(0 == strcmp("Spam", appetizer->data));
-  assert(0 == strcmp("Spam", list->first->data));
-  assert(0 == strcmp("Spam", list->last->next->data));
+  assert(list->last == dessert);
+  assert( 0 == strcmp("Spam", appetizer->data) );
+  assert( 0 == strcmp("Spam", list->first->data) );
+  assert( 0 == strcmp("Spam", list->last->next->data) );
+
+  assert( 0 == strcmp("Spam, Spam, Spam", dessert->data) );
+  assert( 0 == strcmp("Spam, Spam, Spam", list->last->data) );
+  assert( 0 == strcmp("Spam, Spam, Spam", list->first->prev->data) );
+
+  assert( 0 == strcmp("Spam & eggs", entree->data) );
+  assert( 0 == strcmp("Spam & eggs", list->first->next->data) );
+  assert( 0 == strcmp("Spam & eggs", list->last->prev->data) );
 }
 
 void list_find__returns_null_when_string_doesnt_appear_in_any_node() {
